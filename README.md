@@ -1,21 +1,24 @@
-# 🛠️ DevKit API
+# DevKit API
 
 Fast, in-memory developer utility API built purely with [@harshitclub/nodeframe](https://www.npmjs.com/package/@harshitclub/nodeframe). Zero database, zero heavy dependencies, 100% compute.
 
----
-
-## ⚡ Features
-
-- **🚀 100% In-Memory**: Instant compute with sub-millisecond response latency.
-- **🛡️ Built-in Security**: CORS preflight enabled, per-IP rate limiting, and strict input validation.
-- **🧪 Tested**: Full unit and integration test suite powered by [Vitest](https://vitest.dev/).
-- **💻 Zero External Runtime Dependencies**: Powered entirely by Node.js core modules + `@harshitclub/nodeframe`.
-- **🐳 Docker Ready**: Containerized with lightweight multi-stage Alpine image and Docker Compose.
-- **📮 Postman Collection**: Ready-to-import Postman collection included (`devkit-api.postman_collection.json`).
+Repository: [https://github.com/harshitclub/devkit-api.git](https://github.com/harshitclub/devkit-api.git)  
+Frontend Dashboard: [https://devkitui.vercel.app](https://devkitui.vercel.app)
 
 ---
 
-## 🚀 Quick Start
+## Features
+
+- **100% In-Memory**: Instant compute with sub-millisecond response latency.
+- **Built-in Security**: CORS preflight enabled, per-IP rate limiting, and strict input validation.
+- **Tested**: Full unit and integration test suite powered by [Vitest](https://vitest.dev/).
+- **Zero External Runtime Dependencies**: Powered entirely by Node.js core modules + `@harshitclub/nodeframe`.
+- **Docker Ready**: Containerized with lightweight multi-stage Alpine image and Docker Compose.
+- **Postman Collection**: Ready-to-import Postman collection included (`devkit-api.postman_collection.json`).
+
+---
+
+## Quick Start
 
 ### Installation & Local Run
 ```bash
@@ -40,7 +43,7 @@ npm run test:watch
 
 ---
 
-## 📮 Postman Collection
+## Postman Collection
 
 A complete Postman Collection is included in the root directory:
 - File: [`devkit-api.postman_collection.json`](./devkit-api.postman_collection.json)
@@ -54,7 +57,7 @@ A complete Postman Collection is included in the root directory:
 
 ---
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 ### Using Docker
 ```bash
@@ -76,7 +79,7 @@ docker compose down
 
 ---
 
-## 📡 API Reference
+## API Reference
 
 | Method | Endpoint | Query / Body | Description |
 | :--- | :--- | :--- | :--- |
@@ -89,7 +92,7 @@ docker compose down
 
 ---
 
-## 🧪 Example Requests
+## Example Requests
 
 ### 1. Format JSON
 ```bash
@@ -124,7 +127,7 @@ curl "http://localhost:4000/api/transform/slug?text=DevKit%20API&format=snake"
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 devkit-api/
@@ -151,3 +154,18 @@ devkit-api/
 ├── package.json
 └── README.md
 ```
+
+---
+
+## Author
+
+Created by **Harshit Kumar**
+
+- LinkedIn: [https://linkedin.com/in/harshitclub](https://linkedin.com/in/harshitclub)
+- GitHub: [https://github.com/harshitclub](https://github.com/harshitclub)
+
+---
+
+## License
+
+MIT © [Harshit Kumar](https://github.com/harshitclub)
