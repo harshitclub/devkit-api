@@ -11,6 +11,7 @@ Fast, in-memory developer utility API built purely with [@harshitclub/nodeframe]
 - **🧪 Tested**: Full unit and integration test suite powered by [Vitest](https://vitest.dev/).
 - **💻 Zero External Runtime Dependencies**: Powered entirely by Node.js core modules + `@harshitclub/nodeframe`.
 - **🐳 Docker Ready**: Containerized with lightweight multi-stage Alpine image and Docker Compose.
+- **📮 Postman Collection**: Ready-to-import Postman collection included (`devkit-api.postman_collection.json`).
 
 ---
 
@@ -36,6 +37,20 @@ npm test
 # Run tests in watch mode
 npm run test:watch
 ```
+
+---
+
+## 📮 Postman Collection
+
+A complete Postman Collection is included in the root directory:
+- File: [`devkit-api.postman_collection.json`](./devkit-api.postman_collection.json)
+
+**How to Import & Test:**
+1. Open **Postman**.
+2. Click **Import** (top left).
+3. Drag & drop or select `devkit-api.postman_collection.json`.
+4. Ensure the server is running (`npm start` or `npm run dev`).
+5. All requests use the `{{baseUrl}}` variable defaulting to `http://localhost:4000`.
 
 ---
 
@@ -114,24 +129,25 @@ curl "http://localhost:4000/api/transform/slug?text=DevKit%20API&format=snake"
 ```text
 devkit-api/
 ├── src/
-│   ├── app.js               # App initialization, CORS, middleware, and routes
-│   ├── routes/              # Modular route handlers
+│   ├── app.js                          # App initialization, CORS, middleware, and routes
+│   ├── routes/                         # Modular route handlers
 │   │   ├── health.js
 │   │   ├── format.js
 │   │   ├── crypto.js
 │   │   ├── regex.js
 │   │   ├── generate.js
 │   │   └── transform.js
-│   └── utils/               # Pure transformation and crypto helpers
+│   └── utils/                          # Pure transformation and crypto helpers
 │       ├── cryptoHelper.js
 │       └── textTransformer.js
 ├── tests/
-│   ├── unit/                # Pure logic unit tests
-│   └── integration/         # HTTP endpoint & rate-limiting integration tests
-├── Dockerfile               # Production multi-stage Alpine Dockerfile
-├── docker-compose.yml       # Docker compose orchestration
+│   ├── unit/                           # Pure logic unit tests
+│   └── integration/                    # HTTP endpoint & rate-limiting integration tests
+├── Dockerfile                          # Production multi-stage Alpine Dockerfile
+├── docker-compose.yml                  # Docker compose orchestration
+├── devkit-api.postman_collection.json  # Postman collection v2.1.0
 ├── .dockerignore
-├── server.js                # Server entry point
+├── server.js                           # Server entry point
 ├── package.json
 └── README.md
 ```

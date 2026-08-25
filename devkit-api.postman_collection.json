@@ -1,0 +1,446 @@
+{
+  "info": {
+    "_postman_id": "b9f936f4-1234-4a56-8789-0123456789ab",
+    "name": "DevKit API",
+    "description": "Postman collection for DevKit API — Developer Utilities & Transformation Backend powered by NodeFrame (@harshitclub/nodeframe).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:4000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health & Meta",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "health"]
+            },
+            "description": "Returns system health, uptime in seconds, memory usage, and framework information."
+          }
+        }
+      ]
+    },
+    {
+      "name": "JSON Formatter & Minifier",
+      "item": [
+        {
+          "name": "Format JSON (Beautify)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"name\": \"DevKit API\",\n    \"features\": [\n      \"json-formatter\",\n      \"crypto-hasher\",\n      \"regex-tester\",\n      \"uuid-generator\",\n      \"slugifier\"\n    ],\n    \"framework\": \"@harshitclub/nodeframe\"\n  },\n  \"space\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/format/json",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "format", "json"]
+            },
+            "description": "Beautifies JSON data with custom indentation and size stats."
+          }
+        },
+        {
+          "name": "Minify JSON",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"name\": \"DevKit API\",\n    \"features\": [\"format\", \"hash\", \"regex\"],\n    \"fast\": true\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/format/json?minify=true",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "format", "json"],
+              "query": [
+                {
+                  "key": "minify",
+                  "value": "true"
+                }
+              ]
+            },
+            "description": "Minifies JSON removing all unnecessary whitespace."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cryptographic Hash & Encoder",
+      "item": [
+        {
+          "name": "SHA-256 Hash",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Hello NodeFrame\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/crypto/hash?algo=sha256",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "crypto", "hash"],
+              "query": [
+                {
+                  "key": "algo",
+                  "value": "sha256"
+                }
+              ]
+            },
+            "description": "Computes SHA-256 hash digest."
+          }
+        },
+        {
+          "name": "HMAC-SHA256 (with Secret)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Secure payload message\",\n  \"secret\": \"my-secret-key-123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/crypto/hash?algo=sha256",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "crypto", "hash"],
+              "query": [
+                {
+                  "key": "algo",
+                  "value": "sha256"
+                }
+              ]
+            },
+            "description": "Computes HMAC-SHA256 signature using a secret key."
+          }
+        },
+        {
+          "name": "SHA-512 Hash",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Hello NodeFrame\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/crypto/hash?algo=sha512",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "crypto", "hash"],
+              "query": [
+                {
+                  "key": "algo",
+                  "value": "sha512"
+                }
+              ]
+            },
+            "description": "Computes SHA-512 hash digest."
+          }
+        },
+        {
+          "name": "MD5 Hash",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Hello NodeFrame\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/crypto/hash?algo=md5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "crypto", "hash"],
+              "query": [
+                {
+                  "key": "algo",
+                  "value": "md5"
+                }
+              ]
+            },
+            "description": "Computes MD5 hash digest."
+          }
+        },
+        {
+          "name": "Base64 Encode",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"DevKit Rocks!\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/crypto/hash?algo=base64",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "crypto", "hash"],
+              "query": [
+                {
+                  "key": "algo",
+                  "value": "base64"
+                }
+              ]
+            },
+            "description": "Encodes text into Base64 format."
+          }
+        },
+        {
+          "name": "Base64 Decode",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"RGV2S2l0IFJvY2tzIQ==\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/crypto/hash?algo=base64decode",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "crypto", "hash"],
+              "query": [
+                {
+                  "key": "algo",
+                  "value": "base64decode"
+                }
+              ]
+            },
+            "description": "Decodes Base64 encoded string back to plain text."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Regular Expression Tester",
+      "item": [
+        {
+          "name": "Regex Match (Global Emails)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pattern\": \"(\\\\w+)@(\\\\w+\\\\.\\\\w+)\",\n  \"flags\": \"g\",\n  \"text\": \"Contact me at dev@nodeframe.dev or test@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/regex/test",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "regex", "test"]
+            },
+            "description": "Tests regex pattern against text with global match extraction."
+          }
+        },
+        {
+          "name": "Regex Match (Case Insensitive)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pattern\": \"devkit\",\n  \"flags\": \"i\",\n  \"text\": \"DevKit is ultra fast and reliable\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/regex/test",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "regex", "test"]
+            },
+            "description": "Tests regex pattern with case-insensitive flag."
+          }
+        }
+      ]
+    },
+    {
+      "name": "UUID & Random Token Generator",
+      "item": [
+        {
+          "name": "Generate Single UUID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/generate/uuid",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "generate", "uuid"]
+            },
+            "description": "Generates 1 cryptographically random UUID v4."
+          }
+        },
+        {
+          "name": "Generate Multiple UUIDs (e.g. count=5)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/generate/uuid?count=5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "generate", "uuid"],
+              "query": [
+                {
+                  "key": "count",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "Generates specified count (1-50) of UUID v4 tokens."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Text Transformer & Slugifier",
+      "item": [
+        {
+          "name": "Convert to Slug",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/transform/slug?text=My Awesome Project&format=slug",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "transform", "slug"],
+              "query": [
+                {
+                  "key": "text",
+                  "value": "My Awesome Project"
+                },
+                {
+                  "key": "format",
+                  "value": "slug"
+                }
+              ]
+            },
+            "description": "Converts text to URL-friendly slug."
+          }
+        },
+        {
+          "name": "Convert to camelCase",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/transform/slug?text=My Awesome Project&format=camel",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "transform", "slug"],
+              "query": [
+                {
+                  "key": "text",
+                  "value": "My Awesome Project"
+                },
+                {
+                  "key": "format",
+                  "value": "camel"
+                }
+              ]
+            },
+            "description": "Converts text to camelCase."
+          }
+        },
+        {
+          "name": "Convert to snake_case",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/transform/slug?text=My Awesome Project&format=snake",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "transform", "slug"],
+              "query": [
+                {
+                  "key": "text",
+                  "value": "My Awesome Project"
+                },
+                {
+                  "key": "format",
+                  "value": "snake"
+                }
+              ]
+            },
+            "description": "Converts text to snake_case."
+          }
+        },
+        {
+          "name": "Convert to PascalCase",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/transform/slug?text=My Awesome Project&format=pascal",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "transform", "slug"],
+              "query": [
+                {
+                  "key": "text",
+                  "value": "My Awesome Project"
+                },
+                {
+                  "key": "format",
+                  "value": "pascal"
+                }
+              ]
+            },
+            "description": "Converts text to PascalCase."
+          }
+        }
+      ]
+    }
+  ]
+}
