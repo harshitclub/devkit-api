@@ -1,0 +1,40 @@
+{
+  "name": "devkit-api",
+  "version": "1.0.0",
+  "description": "Developer Utilities & Transformation API powered by NodeFrame",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harshitclub/devkit-api.git"
+  },
+  "keywords": [
+    "devkit",
+    "api",
+    "nodeframe",
+    "developer-tools",
+    "json-formatter",
+    "hash",
+    "regex",
+    "uuid-generator",
+    "slugifier"
+  ],
+  "author": "Harshit Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/harshitclub/devkit-api/issues"
+  },
+  "homepage": "https://github.com/harshitclub/devkit-api#readme",
+  "dependencies": {
+    "@harshitclub/nodeframe": "^1.0.1"
+  },
+  "devDependencies": {
+    "vitest": "^3.0.0"
+  }
+}
